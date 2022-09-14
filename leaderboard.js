@@ -15,9 +15,6 @@ for(header of headers) {
 	cell.innerText = header;
 	cell.className = "tableHeader"
 
-	cell.onclick = function() {
-		console.log("Hi from " + header);
-	};
 	tableHeadRow.append(cell);
 }
 
@@ -67,8 +64,6 @@ getRatingsPublicAPI().then((players) => {
 
 		tableRow.append(username, rapid, blitz, bullet, puzzles);
 		table.append(tableRow);
-
-		console.log(player);
 	});
 
 	document.querySelector(".hide").style.display = "block";

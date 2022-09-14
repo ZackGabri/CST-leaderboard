@@ -2,8 +2,6 @@ async function getRatingsPublicAPI() {
 	let ratings = [];
 	
 	for (player of players) {
-		console.log("Fetching " + player.username + "...");
-
 		let res = await fetch(`https://api.chess.com/pub/player/${player.account}/stats`);
 		let data = await res.json();
 		
@@ -66,7 +64,6 @@ async function getRatingsPublicAPI() {
 
 		ratings.push(rating);
 	}
-	
-	console.log("Done!");
+
 	return ratings;
 }

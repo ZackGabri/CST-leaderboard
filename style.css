@@ -1,0 +1,57 @@
+body {
+	color: whitesmoke;
+	font-size: 1.2em;
+	background: #25272c;
+}
+
+.hide {
+	display: none;
+}
+
+.notes {
+	margin-top: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: whitesmoke;
+}
+
+.username {
+	font-weight: bold;
+}
+
+.leaderboardTable {
+	padding: 0;
+	margin: auto;
+	border-collapse: collapse;
+	width: 80%;
+	text-align: center;
+	color: whitesmoke;
+}
+
+.tableHeaderRow {
+	color: darkorange;
+	font-weight: bold;
+	height: 50px;
+}
+
+.tableHeader:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.leaderboardTableRow:nth-child(odd ){
+	background-color: rgba(128, 128, 128, 0.050);
+}
+
+.leaderboardTableRow:hover {
+	background-color: darkorange;
+}
+
+.leaderboardTableRow {
+	height: 40px;
+}
+
+
+.leaderboardTable tr td {
+	height: 25px;
+}

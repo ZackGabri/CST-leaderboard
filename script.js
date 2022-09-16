@@ -1,7 +1,9 @@
 async function getRatingsPublicAPI() {
+	let playerList = await (await fetch("https://api.npoint.io/be2d1995fe5315721c49")).json();
+
 	let ratings = [];
 	
-	for (player of players) {
+	for (player of playerList) {
 		let res = await fetch(`https://api.chess.com/pub/player/${player.account}/stats`);
 		let data = await res.json();
 		

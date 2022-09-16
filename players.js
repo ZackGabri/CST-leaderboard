@@ -4,7 +4,6 @@
 */
 
 const players = [
-	{username: "Vladivostik", account: "Vladivostik"},
 	{username: "Milu", account: "noobmilu1"},
 	{username: "Lol3270", account: "Lol3270"},
 	{username: "Menilll (Buzzer)", account: "Menilll"},

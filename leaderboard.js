@@ -26,13 +26,13 @@ tableBody.className = "tableBody";
 table.append(tableBody);
 
 getRatingsPublicAPI().then((players) => {
-	players.sort((a,b) => b.rapid.current - a.rapid.current).forEach(player => {
+	players.sort((a,b) => b.rapid.current - a.rapid.current).forEach((player, number) => {
 		let tableRow = document.createElement("tr");
-		tableRow.className = "leaderboardTableRow"
+		tableRow.className = "leaderboardTableRow";
 
 		let username = document.createElement("td");
 		username.className = "username";
-		username.innerText = player.username;
+		username.innerText = `${number+1}. ${player.username}`;
 
 		let rapid = document.createElement("td");
 		if(player.rapid.best == 0 && player.rapid.current == 0) {

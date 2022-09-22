@@ -31,8 +31,14 @@ getRatingsPublicAPI().then((players) => {
 		tableRow.className = "leaderboardTableRow";
 
 		let username = document.createElement("td");
+		let text = `${number+1}. ${player.username}`
+
+		if (player.username.toLowerCase() != player.account.toLowerCase()) {
+			text += ` (${player.account})`
+		}
+
 		username.className = "username";
-		username.innerText = `${number+1}. ${player.username}`;
+		username.innerText = text;
 
 		let rapid = document.createElement("td");
 		if(player.rapid.best == 0 && player.rapid.current == 0) {

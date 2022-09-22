@@ -9,6 +9,7 @@ async function getRatingsPublicAPI() {
 		
 		let rating = {
 			username: player.username,
+			account: player.account,
 			rapid: {
 				best: 0,
 				current: 0,

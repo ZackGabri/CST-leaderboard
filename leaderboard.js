@@ -30,15 +30,22 @@ getRatingsPublicAPI().then((players) => {
 		let tableRow = document.createElement("tr");
 		tableRow.className = "leaderboardTableRow";
 
-		let username = document.createElement("td");
-		let text = `${number+1}. ${player.username}`
+		let rank = document.createElement("td");
+		rank.innerText = `${number+1}. `;
+		rank.className = "rank";
 
-		if (player.username.toLowerCase() != player.account.toLowerCase()) {
-			text += ` (${player.account})`
+		let username = document.createElement("div");
+		username.className = "username";
+		username.innerText = player.username;
+
+		if(player.username != player.account) {
+			let tooltiptext = document.createElement("span");
+			tooltiptext.className = "usernametooltip";
+			tooltiptext.innerText = player.account;
+			username.append(tooltiptext);
 		}
 
-		username.className = "username";
-		username.innerText = text;
+		rank.append(username);
 
 		let rapid = document.createElement("td");
 		if(player.rapid.best == 0 && player.rapid.current == 0) {
@@ -68,7 +75,7 @@ getRatingsPublicAPI().then((players) => {
 			puzzles.innerText = player.puzzles.highest;
 		}
 
-		tableRow.append(username, rapid, blitz, bullet, puzzles);
+		tableRow.append(rank, rapid, blitz, bullet, puzzles);
 		table.append(tableRow);
 	});
 

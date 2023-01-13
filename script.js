@@ -58,11 +58,13 @@ async function getRatingsPublicAPI() {
 				rating.bullet.best = data.chess_bullet.best.rating;
 			}
 		}
-
-		if (data.tactics.highest) {
-			// there is no way to actually get the current rating with the public api, so i'll be using the highest for both
-			rating.puzzles.highest = data.tactics.highest.rating;
-			rating.puzzles.lowest = data.tactics.lowest.rating;
+		
+		if (data.tactics) {
+			if (data.tactics.highest) {
+				// there is no way to actually get the current rating with the public api, so i'll be using the highest for both
+				rating.puzzles.highest = data.tactics.highest.rating;
+				rating.puzzles.lowest = data.tactics.lowest.rating;
+			}
 		}
 
 		ratings.push(rating);

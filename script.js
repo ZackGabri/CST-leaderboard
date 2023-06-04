@@ -1,12 +1,19 @@
+let loadingText = document.getElementById("loading");
+
 async function getRatingsPublicAPI() {
 	let playerList = await (await fetch("https://api.npoint.io/be2d1995fe5315721c49")).json();
-
+	let totalPlayers = playerList.length;
+	let loadedCount = 1;
 	let ratings = [];
-	
+
+
 	for (player of playerList) {
+		loadingText.innerText = `Loading ${loadedCount} out of ${totalPlayers} players...`
+		loadedCount++;
+
 		let res = await fetch(`https://api.chess.com/pub/player/${player.account}/stats`);
 		let data = await res.json();
-		
+
 		let rating = {
 			username: player.username,
 			account: player.account,
@@ -58,7 +65,7 @@ async function getRatingsPublicAPI() {
 				rating.bullet.best = data.chess_bullet.best.rating;
 			}
 		}
-		
+
 		if (data.tactics) {
 			if (data.tactics.highest) {
 				// there is no way to actually get the current rating with the public api, so i'll be using the highest for both

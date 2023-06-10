@@ -1,115 +1,115 @@
 body {
-	color: whitesmoke;
-	font-size: 1.2em;
-	background: #25272c;
-	font-family: "Gill Sans", sans-serif;
+  color: whitesmoke;
+  font-size: 1.2em;
+  background: #25272c;
+  font-family: "Gill Sans", sans-serif;
 }
 
 #loading {
-	font-family: Georgia, 'Times New Roman', Times, serif;
-	font-size: 1.5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
 
-	text-align: center;
-	position: fixed;
+  text-align: center;
+  position: fixed;
 
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
 .notes {
-	margin-top: 20px;
-	font-weight: bold;
-	text-align: center;
-	color: whitesmoke;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: whitesmoke;
 }
 
 .rank {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 /* Tooltip container */
 .username {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 /* Tooltip text */
 .username .usernametooltip {
-	visibility: hidden;
-	background-color: #444;
-	color: whitesmoke;
-	text-align: center;
-	font-weight: normal;
-	padding: 2px 5px;
-	border-radius: 6px;
+  visibility: hidden;
+  background-color: #444;
+  color: whitesmoke;
+  text-align: center;
+  font-weight: normal;
+  padding: 2px 5px;
+  border-radius: 6px;
 
-	/* Position the tooltip text */
-	position: absolute;
-	z-index: 1;
-	top: -50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-	/* Fade in tooltip */
-	opacity: 0;
-	transition: opacity 0.3s;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 /* Tooltip arrow */
 .username .usernametooltip::after {
-	content: "";
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: #444 transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #444 transparent transparent transparent;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .username:hover .usernametooltip {
-	visibility: visible;
-	opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .leaderboardTable {
-	padding: 0;
-	margin: auto;
-	border-collapse: collapse;
-	width: 80%;
-	text-align: center;
-	color: whitesmoke;
+  padding: 0;
+  margin: auto;
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  color: whitesmoke;
 }
 
 .tableHeaderRow {
-	color: darkorange;
-	font-weight: bold;
-	height: 50px;
+  color: darkorange;
+  font-weight: bold;
+  height: 50px;
 }
 
 .tableHeader:hover {
-	cursor: pointer;
-	text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .leaderboardTableRow:nth-child(odd) {
-	background-color: rgba(128, 128, 128, 0.05);
+  background-color: rgba(128, 128, 128, 0.05);
 }
 
 .leaderboardTableRow:hover {
-	background-color: darkorange;
+  background-color: darkorange;
 }
 
 .leaderboardTableRow {
-	height: 40px;
+  height: 40px;
 }
 
 .leaderboardTable tr td {
-	height: 25px;
+  height: 25px;
 }

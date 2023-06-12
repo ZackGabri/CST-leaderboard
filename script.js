@@ -11,7 +11,7 @@ async function getRatingsPublicAPI() {
 	let loadedCount = 1;
 	let ratings = [];
 
-	const chunkSize = 2;
+	const chunkSize = 1;
 	for (let i = 0; i < playerList.length; i += chunkSize) {
 		const chunk = playerList.slice(i, i + chunkSize);
 

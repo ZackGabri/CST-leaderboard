@@ -25,7 +25,7 @@ let tableBody = document.createElement("tbody");
 tableBody.className = "tableBody";
 table.append(tableBody);
 
-getRatingsPublicAPI().then((players) => {
+getRatings().then((players) => {
 	players.sort((a, b) => b.rapid.current - a.rapid.current).forEach((player, number) => {
 		let tableRow = document.createElement("tr");
 		tableRow.className = "leaderboardTableRow";
@@ -69,10 +69,10 @@ getRatingsPublicAPI().then((players) => {
 		}
 
 		let puzzles = document.createElement("td");
-		if (player.puzzles.highest == 0) {
+		if (player.puzzles.best == 0 && player.puzzles.current == 0) {
 			puzzles.innerText = "?";
 		} else {
-			puzzles.innerText = player.puzzles.highest;
+			puzzles.innerText = player.puzzles.current + " / " + player.puzzles.best;
 		}
 
 		tableRow.append(rank, rapid, blitz, bullet, puzzles);

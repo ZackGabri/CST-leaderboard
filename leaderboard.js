@@ -1,8 +1,8 @@
 let boardDiv = document.getElementById("leaderboard");
 let headers = ["Player", "Rapid", "Blitz", "Bullet", "Puzzles"];
 
-let table = document.createElement("table");
-table.className = "leaderboardTable"
+let leaderboardTable = document.createElement("table");
+leaderboardTable.className = "leaderboardTable"
 
 let tableHead = document.createElement("thead");
 tableHead.className = "tableHead"
@@ -10,20 +10,57 @@ tableHead.className = "tableHead"
 let tableHeadRow = document.createElement("tr");
 tableHeadRow.className = "tableHeaderRow"
 
-for (header of headers) {
+
+let lastSortedBy = 1;
+let reverse = false;
+for (const header of headers) {
 	let cell = document.createElement("th");
 	cell.innerText = header;
 	cell.className = "tableHeader"
+
+	// sorting on click
+	cell.addEventListener('click', (event) => {
+		let tbody = leaderboardTable.tBodies[0];
+		let rows = Array.from(tbody.rows);
+		let sortBy = event.target.cellIndex;
+		let sorted = rows.sort((a, b) => {
+			if (sortBy > 0) {
+				let firstRating = a.cells[sortBy].innerText.split("/")[0].trim();
+				let secondRating = b.cells[sortBy].innerText.split("/")[0].trim();
+
+				return secondRating - firstRating;
+			} else {
+				return a - b;
+			}
+		});
+
+		if (lastSortedBy == sortBy) {
+			reverse = !reverse;
+		} else {
+			reverse = false;
+		}
+
+		if (reverse) {
+			sorted.reverse();
+		}
+
+		for (const row of sorted) {
+			// delete the elements then add them in the correct order
+			tbody.removeChild(row);
+			tbody.appendChild(row);
+		}
+		lastSortedBy = sortBy;
+	});
 
 	tableHeadRow.append(cell);
 }
 
 tableHead.append(tableHeadRow);
-table.append(tableHead);
+leaderboardTable.append(tableHead);
 
 let tableBody = document.createElement("tbody");
 tableBody.className = "tableBody";
-table.append(tableBody);
+leaderboardTable.append(tableBody);
 
 getRatings().then((players) => {
 	players.sort((a, b) => b.rapid.current - a.rapid.current).forEach((player, number) => {
@@ -31,7 +68,6 @@ getRatings().then((players) => {
 		tableRow.className = "leaderboardTableRow";
 
 		let rank = document.createElement("td");
-		rank.innerText = `${number + 1}. `;
 		rank.className = "rank";
 
 		let username = document.createElement("div");
@@ -76,11 +112,11 @@ getRatings().then((players) => {
 		}
 
 		tableRow.append(rank, rapid, blitz, bullet, puzzles);
-		table.append(tableRow);
+		tableBody.append(tableRow);
 	});
 
 	document.querySelector("#loading").style.display = "none";
 	document.querySelector(".hide").style.display = "block";
 });
 
-boardDiv.append(table);
+boardDiv.append(leaderboardTable);

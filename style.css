@@ -5,6 +5,7 @@ body {
 	font-family: "Gill Sans", sans-serif;
 }
 
+
 #loading {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: 1.5em;
@@ -76,6 +77,21 @@ body {
 .username:hover .usernametooltip {
 	visibility: visible;
 	opacity: 1;
+}
+
+/* Add numbers in the leaderboard */
+table {
+	counter-reset: rowNumber;
+	counter-set: rowNumber 1;
+}
+
+table tr:not(:first-child) {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber) ". ";
+	min-width: 1em;
 }
 
 .leaderboardTable {

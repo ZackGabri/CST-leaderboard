@@ -1,2 +1,3 @@
-# germ-discord-leaderboard
-This is just a leaderboard made for the GerM discord server
+# Chess Simp Tournaments Leaderboard
+
+A chess leaderboard made for the chess simp tournaments server.

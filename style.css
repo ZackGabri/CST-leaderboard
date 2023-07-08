@@ -93,6 +93,14 @@ tbody tr td:first-child::before {
 	min-width: 1em;
 }
 
+.pointer.asc:after {
+	content: "▼";
+}
+
+.pointer.des:after {
+	content: "▲";
+}
+
 .leaderboardTable {
 	padding: 0;
 	margin: auto;

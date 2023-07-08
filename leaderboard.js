@@ -11,48 +11,63 @@ let tableHeadRow = document.createElement("tr");
 tableHeadRow.className = "tableHeaderRow"
 
 
-let lastSortedBy = 1;
-let reverse = false;
+
 for (const header of headers) {
 	let cell = document.createElement("th");
 	cell.innerText = header;
-	cell.className = "tableHeader"
+	cell.classList.add("tableHeader", "pointer");
 
 	// sorting on click
 	cell.addEventListener('click', (event) => {
-		let tbody = leaderboardTable.tBodies[0];
-		let rows = Array.from(tbody.rows);
-		let sortBy = event.target.cellIndex;
-		let sorted = rows.sort((a, b) => {
-			if (sortBy > 0) {
-				let firstRating = a.cells[sortBy].innerText.split("/")[0].trim();
-				let secondRating = b.cells[sortBy].innerText.split("/")[0].trim();
-
-				return secondRating - firstRating;
-			} else {
-				return a - b;
-			}
-		});
-
-		if (lastSortedBy == sortBy) {
-			reverse = !reverse;
-		} else {
-			reverse = false;
-		}
-
-		if (reverse) {
-			sorted.reverse();
-		}
-
-		for (const row of sorted) {
-			// delete the elements then add them in the correct order
-			tbody.removeChild(row);
-			tbody.appendChild(row);
-		}
-		lastSortedBy = sortBy;
+		sortTable(event.target.cellIndex);
 	});
 
 	tableHeadRow.append(cell);
+}
+
+let lastSortedBy;
+let reverseSorting;
+function sortTable(sortBy) {
+	// don't allow sorting by the first column, aka player names
+	// if (sortBy == 0) return;
+
+	let tbody = leaderboardTable.tBodies[0];
+	let rows = Array.from(tbody.rows);
+
+	if (lastSortedBy == sortBy) {
+		reverseSorting = !reverseSorting;
+	} else {
+		reverseSorting = false;
+	}
+
+	let sorted = rows.sort((a, b) => {
+		let firstRating = a.cells[sortBy].innerText.split("/")[0].trim();
+		let secondRating = b.cells[sortBy].innerText.split("/")[0].trim();
+
+		if (sortBy == 0) {
+			return a.cells[sortBy].innerText.localeCompare(b.cells[sortBy].innerText)
+		} else {
+			return secondRating - firstRating;
+		}
+	});
+
+	if (reverseSorting) {
+		sorted.reverse();
+	}
+
+	for (const row of sorted) {
+		// delete the elements then add them in the correct order
+		tbody.removeChild(row);
+		tbody.appendChild(row);
+	}
+
+	for (cell of tableHeadRow.cells) {
+		cell.classList.remove("asc", "des");
+		if (sortBy == cell.cellIndex) {
+			cell.classList.add(reverseSorting ? "des" : "asc");
+		}
+	}
+	lastSortedBy = sortBy;
 }
 
 tableHead.append(tableHeadRow);
@@ -63,7 +78,7 @@ tableBody.className = "tableBody";
 leaderboardTable.append(tableBody);
 
 getRatings().then((players) => {
-	players.sort((a, b) => b.rapid.current - a.rapid.current).forEach((player, number) => {
+	for (const player of players) {
 		let tableRow = document.createElement("tr");
 		tableRow.className = "leaderboardTableRow";
 
@@ -113,8 +128,9 @@ getRatings().then((players) => {
 
 		tableRow.append(rank, rapid, blitz, bullet, puzzles);
 		tableBody.append(tableRow);
-	});
+	};
 
+	sortTable(1);
 	document.querySelector("#loading").style.display = "none";
 	document.querySelector(".hide").style.display = "block";
 });

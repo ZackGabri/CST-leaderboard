@@ -80,16 +80,15 @@ body {
 }
 
 /* Add numbers in the leaderboard */
-table {
+tbody {
 	counter-reset: rowNumber;
-	counter-set: rowNumber 1;
 }
 
-table tr:not(:first-child) {
+tbody tr {
 	counter-increment: rowNumber;
 }
 
-table tr td:first-child::before {
+tbody tr td:first-child::before {
 	content: counter(rowNumber) ". ";
 	min-width: 1em;
 }

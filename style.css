@@ -93,6 +93,7 @@ tbody tr td:first-child::before {
 	min-width: 1em;
 }
 
+/* Sorting mode indicators */
 .pointer.asc:after {
 	content: "▼";
 }
@@ -118,6 +119,7 @@ tbody tr td:first-child::before {
 
 .tableHeader:hover {
 	cursor: pointer;
+	user-select: none;
 	text-decoration: underline;
 }
 

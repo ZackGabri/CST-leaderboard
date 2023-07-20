@@ -1,6 +1,6 @@
-async function getRatings() {
-	let response = await fetch('/getratings');
-	let json = await response.json();
+export async function getRatings() {
+	const response = await fetch('/getratings');
+	const json = await response.json();
 
-	return json;
+	return json
 }

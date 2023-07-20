@@ -1,3 +1,5 @@
+import { getRatings } from "./script.js";
+
 let boardDiv = document.getElementById("leaderboard");
 let headers = ["Player", "Rapid", "Blitz", "Bullet", "Puzzles"];
 
@@ -61,7 +63,7 @@ function sortTable(sortBy) {
 		tbody.appendChild(row);
 	}
 
-	for (cell of tableHeadRow.cells) {
+	for (let cell of tableHeadRow.cells) {
 		cell.classList.remove("asc", "des");
 		if (sortBy == cell.cellIndex) {
 			cell.classList.add(reverseSorting ? "des" : "asc");
@@ -128,7 +130,7 @@ getRatings().then((players) => {
 
 		tableRow.append(rank, rapid, blitz, bullet, puzzles);
 		tableBody.append(tableRow);
-	};
+	}
 
 	sortTable(1);
 	document.querySelector("#loading").style.display = "none";

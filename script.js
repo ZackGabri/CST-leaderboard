@@ -1,7 +1,5 @@
-let worker = 'https://withered-wind-95c4.mrkoko134.workers.dev';
-
 async function getRatings() {
-	let response = await fetch(worker);
+	let response = await fetch('/getratings');
 	let json = await response.json();
 
 	return json;

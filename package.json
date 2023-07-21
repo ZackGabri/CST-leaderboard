@@ -4,7 +4,8 @@
   "description": "A chess leaderboard made for the chess simp tournaments server.",
   "main": "index.html",
   "scripts": {
-    "dev": "npx wrangler pages dev ."
+    "dev": "npx wrangler pages dev .",
+    "validatecss": "npx doiuse ./style"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/ZackGabri/CST-leaderboard#readme",
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230717.0",
+    "doiuse": "^6.0.2",
     "eslint": "^8.45.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-html": "^7.1.0",

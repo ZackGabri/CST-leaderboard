@@ -1,3 +1,5 @@
+/* This is a cloudflare functions file */
+
 export async function onRequest() {
   const playerListUrl = "https://api.npoint.io/be2d1995fe5315721c49";
   const playerList = await (await fetch(playerListUrl)).json();

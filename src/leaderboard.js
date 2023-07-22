@@ -45,6 +45,7 @@ let lastSortedBy, reverseSorting;
  * sorts the leaderboard based on the given column index
  * for 0 it sorts player names alphabetically
  * and for everything else it sorts based on the current rating
+ * requires finalize to be called
  * @param {Number} sortBy - the column index to sort by
  */
 export function sort(sortBy) {

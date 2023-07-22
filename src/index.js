@@ -8,7 +8,6 @@ getRatings().then((players) => {
   for (const player of players) {
     leaderboard.addPlayer(player);
   }
-  leaderboard.sort();
+  leaderboard.sort(1);
+  leaderboard.finalize();
 });
-
-leaderboard.finalize();

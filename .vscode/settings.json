@@ -2,5 +2,6 @@
   "prettier.enable": true,
   "prettier.requireConfig": true,
   "prettier.quoteProps": "consistent",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.eol": "\n"
 }

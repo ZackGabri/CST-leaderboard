@@ -1,0 +1,26 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.loading {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: darkorange transparent darkorange transparent;
+  border-radius: 50%;
+  animation: spin-anim 1s linear infinite;
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

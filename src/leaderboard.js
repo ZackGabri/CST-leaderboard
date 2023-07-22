@@ -156,7 +156,5 @@ export function finalize() {
   leaderboardTable.append(tableHead);
   leaderboardTable.append(tableBody);
   leaderboardDiv.append(leaderboardTable);
-  document.querySelectorAll('.hide').forEach((element) => {
-    element.classList.remove('hide');
-  });
+  document.querySelector('.main-content').classList.remove('hide');
 }

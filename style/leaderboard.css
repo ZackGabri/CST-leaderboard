@@ -1,0 +1,56 @@
+.leaderboardTable {
+  padding: 0;
+  margin: auto;
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.tableHeaderRow {
+  color: darkorange;
+  font-weight: bold;
+  height: 50px;
+}
+
+.tableHeader:hover {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: underline;
+}
+
+.leaderboardTableRow:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+.leaderboardTableRow:hover {
+  background-color: darkorange;
+}
+
+.leaderboardTableRow {
+  height: 40px;
+}
+
+.leaderboardTable tr td {
+  height: 25px;
+}
+
+/* Add numbers in the leaderboard */
+tbody {
+  counter-reset: rowNumber;
+}
+
+tbody tr {
+  counter-increment: rowNumber;
+}
+
+tbody tr td:first-child::before {
+  content: counter(rowNumber) '. ';
+  min-width: 1em;
+}
+
+/* Make username bold*/
+.rank {
+  font-weight: bold;
+}

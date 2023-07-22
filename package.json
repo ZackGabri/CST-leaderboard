@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx wrangler pages dev .",
-    "validatecss": "npx doiuse ./style.css"
+    "validatecss": "npx doiuse -b \"defaults\" style/main.css style/leaderboard.css style/tooltips.css"
   },
   "repository": {
     "type": "git",

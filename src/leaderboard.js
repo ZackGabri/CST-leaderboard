@@ -109,7 +109,7 @@ export function addPlayer(player) {
 
   if (player.username != player.account) {
     let tooltiptext = document.createElement('span');
-    tooltiptext.className = 'usernametooltip';
+    tooltiptext.className = 'usernametooltip tooltip';
     tooltiptext.innerText = player.account;
     username.append(tooltiptext);
   }

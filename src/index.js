@@ -9,5 +9,5 @@ getRatings().then((players) => {
     leaderboard.addPlayer(player);
   }
   leaderboard.finalize();
-  leaderboard.sort(1);
+  leaderboard.sort(1); // sort by rapid
 });

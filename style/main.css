@@ -1,0 +1,29 @@
+@import url('leaderboard.css');
+@import url('tooltips.css');
+
+body {
+  color: whitesmoke;
+  font-size: 1.2em;
+  background: #25272c;
+  font-family: 'Gill Sans', sans-serif;
+}
+
+.hide {
+  display: none;
+}
+
+.notes {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: whitesmoke;
+}
+
+/* Sorting mode indicators */
+.pointer.asc:after {
+  content: '▼';
+}
+
+.pointer.des:after {
+  content: '▲';
+}

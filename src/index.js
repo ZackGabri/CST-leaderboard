@@ -1,3 +1,4 @@
+import './errorhandler.js';
 import { getRatings } from './script.js';
 import * as loading from './loading.js';
 import * as leaderboard from './leaderboard.js';

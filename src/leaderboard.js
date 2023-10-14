@@ -68,6 +68,10 @@ export function sort(sortBy) {
     } else {
       let firstRating = a.cells[sortBy].innerText.split('/')[0].trim();
       let secondRating = b.cells[sortBy].innerText.split('/')[0].trim();
+
+      if (isNaN(firstRating)) firstRating = 0;
+      if (isNaN(secondRating)) secondRating = 0;
+
       return secondRating - firstRating;
     }
   });

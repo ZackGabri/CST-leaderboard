@@ -14,7 +14,7 @@ export async function onRequest() {
   );
 
   for (let i in playerList) {
-    let playerStats = data[i].stats;
+    let playerData = data[i].stats || [];
     let player = playerList[i];
 
     let rating = {
@@ -38,7 +38,7 @@ export async function onRequest() {
       },
     };
 
-    for (const mode of playerStats) {
+    for (const mode of playerData) {
       const timecontrol = mode.key;
       const stats = mode.stats;
 
